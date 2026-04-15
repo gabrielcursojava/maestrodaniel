@@ -1,1 +1,103 @@
-<!--  index.html de maestrodaniel -->
+<!-- Index Page -->
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio | Inicio</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/[email protected]/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Opcional: Estilos personalizados (crea este archivo si quieres) -->
+    <link href="css/custom.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ========== MENÚ DE NAVEGACIÓN ========== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Mi Portafolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== SECCIÓN DE BIENVENIDA ========== -->
+    <header class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1>Hola, soy [Tu Nombre]</h1>
+            <p class="lead">Diseñador / Desarrollador / Creativo</p>
+            <a href="#portafolio" class="btn btn-light btn-lg">Ver mi trabajo</a>
+        </div>
+    </header>
+
+    <!-- ========== PORTAFOLIO (Galería de proyectos) ========== -->
+    <section id="portafolio" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Mis Proyectos</h2>
+            
+            <div class="row">
+                <!-- Proyecto 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Proyecto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Nombre del Proyecto</h5>
+                            <p class="card-text">Breve descripción de lo que hiciste en este proyecto.</p>
+                            <a href="#" class="btn btn-outline-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Proyecto 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Nombre del Proyecto</h5>
+                            <p class="card-text">Breve descripción de lo que hiciste en este proyecto.</p>
+                            <a href="#" class="btn btn-outline-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Proyecto 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Nombre del Proyecto</h5>
+                            <p class="card-text">Breve descripción de lo que hiciste en este proyecto.</p>
+                            <a href="#" class="btn btn-outline-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PIE DE PÁGINA ========== -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p class="mb-0">© 2025 [Tu Nombre]. Todos los derechos reservados.</p>
+            <!-- Aquí va tu contador de visitas (opcional) -->
+            <img src="https://komarev.com/ghpvc/?username=TU_USUARIO_GITHUB&color=brightgreen" alt="Visitas" class="mt-2">
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (necesario para el menú hamburguesa en móviles) -->
+    <script src="https://cdn.jsdelivr.net/npm/[email protected]/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

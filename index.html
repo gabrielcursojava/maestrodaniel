@@ -1,5 +1,4 @@
-<!-- Index Page -->
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 
@@ -24,30 +23,26 @@
         }
 
 
-
-    .card-img-top {
-        width: 100%;
-        height: 450px;
-        object-fit: cover;
-    }
-    
-    .card-title {
-        color: rgb(33, 177, 243);
-    }
-    
-    /* Efecto hover para la imagen */
-    .card {
-        overflow: hidden;
-    }
-    
-    .card-img-top {
-        transition: transform 0.3s ease;
-    }
-    
-    .card:hover .card-img-top {
-        transform: scale(1.05);
-    }
-
+        /* CSS's para que las fotos se muevan */    
+        .card-img-top {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+        .card-title {
+            color: rgb(33, 177, 243);
+        }
+        /* Efecto hover para la imagen */
+        .card {
+            overflow: hidden;
+        }
+        .card-img-top {
+            transition: transform 0.3s ease;
+        }
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        /* FIN de CSS's para que las fotos se muevan */
     
     </style>
     
@@ -100,7 +95,7 @@
                              combina diseño personalizado, selección de materiales, cimentación y acabados en un entorno natural.
                              Este proyecto requiere planificar fases clave (obra negra, gris y blanca), considerar la logística en zonas
                              alejadas y buscar armonía con el paisaje.</p>
-                            <a href="#" class="btn btn-outline-primary">Ver más</a> 
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_cabana1">Ver más</button>
                         </div>
                     </div>
                 </div>
@@ -180,55 +175,50 @@
                 </div>
 
              <!-- MODAL - MODAL -- MODAL ---
-<!-- Modal para Proyecto 1 -->
-<div class="modal fade" id="modalProyecto1" tabindex="-1" aria-labelledby="modalProyecto1Label" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalProyecto1Label">Reparación de cielos</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="imagenes/Castro_trabajando.jpeg" class="img-fluid rounded" alt="Proyecto detalle">
+        <!-- Modal para Proyecto 1 -->
+        <div class="modal fade" id="modal_cabana1" tabindex="-1" aria-labelledby="modalProyecto1Label" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalProyecto1Label" style="color:rgb(38,35,224);">Detalles de Cabaña</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
-                    <div class="col-md-6">
-                        <h6>Descripción detallada</h6>
-                        <p>Aquí puedes explicar en detalle todo el proceso del proyecto. Materiales utilizados, tiempo de ejecución, técnicas especiales, etc.</p>
-                        <h6 class="mt-3">Características</h6>
-                        <ul>
-                            <li>Encielado completo de 45m²</li>
-                            <li>Terminación elegante con molduras</li>
-                            <li>Materiales de primera calidad</li>
-                        </ul>
-                        <h6 class="mt-3">Cliente</h6>
-                        <p>Familia Castro - Providencia</p>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="imagenes/cabana1_imagen1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                <img src="imagenes/cabana1_dormitorio.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                <img src="imagenes/cabana1_dormitorio2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Descripción</h6>
+                                <p>Cabaña campestre en pino, una super cabaña en madera estilo artesanal. Habitación suite,
+                                    materiales naturales y Duraderos: La madera es el material predominante, idealmente tratada para resistir la humedad, opcionalmente piedra o concreto en los cimientos para proteger la estructura.
+                                    Aislamiento y Eficiencia: Se emplea materiales que mantienen la calidez en invierno y frescura en verano, garantizando eficiencia energética.
+                                    Ubicación e Integración: Diseñada para entornos rurales, montañosos o costeros, buscando vistas panorámicas y conexión con la naturaleza.
+                                    Diseño Funcional y Acogedor: Espacios optimizados, a menudo con techos altos o a dos aguas, revestimientos de madera interior y áreas de descanso cómodas.
+                                    Se recomiendan bases elevadas (pilotes) para proteger de la humedad del suelo y facilitar la cimentación en terrenos irregulares.
+                                    Conexión con el Exterior: Incorporación de grandes ventanales, terrazas o porches que extienden el espacio habitable hacia el entorno.
+                                </p>
+
+                                <h6 class="mt-3">Características</h6>
+                                <ul>
+                                    <li>Encielado completo de 45m²</li>
+                                    <li>Terminación elegante con molduras</li>
+                                    <li>Materiales de primera calidad</li>
+                                </ul>
+                                <h6 class="mt-3">Cliente</h6>
+                                <p>Familia Castro - Providencia</p>
+                            </div>
+                        </div>
+                        <!-- Puedes agregar más imágenes aquí -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
-                <!-- Puedes agregar más imágenes aquí -->
-                <div class="row mt-4">
-                    <div class="col-12">
-                        <h6>Galería del proceso</h6>
-                    </div>
-                    <div class="col-4">
-                        <img src="imagenes/proceso1.jpg" class="img-fluid rounded" alt="Proceso 1">
-                    </div>
-                    <div class="col-4">
-                        <img src="imagenes/proceso2.jpg" class="img-fluid rounded" alt="Proceso 2">
-                    </div>
-                    <div class="col-4">
-                        <img src="imagenes/proceso3.jpg" class="img-fluid rounded" alt="Proceso 3">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="window.location.href='mailto:[email protected]'">Solicitar presupuesto</button>
             </div>
         </div>
-    </div>
-</div>
              
              
             </div>

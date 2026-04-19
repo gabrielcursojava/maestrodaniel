@@ -107,7 +107,9 @@
                         <div class="card-body">
                             <h5 class="card-title">Reparación de cielos</h5>
                             <p class="card-text">Encielado completo empleando técnicas para una elegante terminación</p>
-                            <a href="#" class="btn btn-outline-primary">Ver más</a>
+
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_cielos">Ver más</button>
+
                         </div>
                     </div>
                 </div>
@@ -120,7 +122,9 @@
                             <h5 class="card-title">Instalación de piso flotante</h5>
                             <p class="card-text">Preparación de la superficie, colocación de la barrera de humedad y manta, junta de dilatación, Instalación de las tablas, Cortes y trabado,
                             Terminaciones y zócalos</p>
-                            <a href="#" class="btn btn-outline-primary">Ver más</a>
+                            
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_piso">Ver más</button>
+
                         </div>
                     </div>
                 </div>
@@ -174,53 +178,142 @@
                     </div>
                 </div>
 
-             <!-- MODAL - MODAL -- MODAL ---
-        <!-- Modal para Proyecto 1 -->
-        <div class="modal fade" id="modal_cabana1" tabindex="-1" aria-labelledby="modalProyecto1Label" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalProyecto1Label" style="color:rgb(38,35,224);">Detalles de Cabaña</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <img src="imagenes/cabana1_imagen1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                <img src="imagenes/cabana1_dormitorio.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                <img src="imagenes/cabana1_dormitorio2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                <!-- MODAL CABAÑA - MODAL CABAÑA-- MODAL CABAÑA --->
+                <!-- Modal para Proyecto 1 -->
+                <div class="modal fade" id="modal_cabana1" tabindex="-1" aria-labelledby="modalProyecto1Label" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalProyecto1Label" style="color:rgb(38,35,224);">Detalles de Cabaña</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                             </div>
-                            <div class="col-md-6">
-                                <h6>Descripción</h6>
-                                <p>Cabaña campestre en pino, una super cabaña en madera estilo artesanal. Habitación suite,
-                                    materiales naturales y Duraderos: La madera es el material predominante, idealmente tratada para resistir la humedad, opcionalmente piedra o concreto en los cimientos para proteger la estructura.
-                                    Aislamiento y Eficiencia: Se emplea materiales que mantienen la calidez en invierno y frescura en verano, garantizando eficiencia energética.
-                                    Ubicación e Integración: Diseñada para entornos rurales, montañosos o costeros, buscando vistas panorámicas y conexión con la naturaleza.
-                                    Diseño Funcional y Acogedor: Espacios optimizados, a menudo con techos altos o a dos aguas, revestimientos de madera interior y áreas de descanso cómodas.
-                                    Se recomiendan bases elevadas (pilotes) para proteger de la humedad del suelo y facilitar la cimentación en terrenos irregulares.
-                                    Conexión con el Exterior: Incorporación de grandes ventanales, terrazas o porches que extienden el espacio habitable hacia el entorno.
-                                </p>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="imagenes/cabana1_imagen1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                        <img src="imagenes/cabana1_dormitorio.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                        <img src="imagenes/cabana1_dormitorio2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Descripción</h6>
+                                        <p>Cabaña campestre en pino, una super cabaña en madera estilo artesanal. Habitación suite,
+                                            materiales naturales y Duraderos: La madera es el material predominante, idealmente tratada para resistir la humedad, opcionalmente piedra o concreto en los cimientos para proteger la estructura.
+                                            Aislamiento y Eficiencia: Se emplea materiales que mantienen la calidez en invierno y frescura en verano, garantizando eficiencia energética.
+                                            Ubicación e Integración: Diseñada para entornos rurales, montañosos o costeros, buscando vistas panorámicas y conexión con la naturaleza.
+                                            Diseño Funcional y Acogedor: Espacios optimizados, a menudo con techos altos o a dos aguas, revestimientos de madera interior y áreas de descanso cómodas.
+                                            Se recomiendan bases elevadas (pilotes) para proteger de la humedad del suelo y facilitar la cimentación en terrenos irregulares.
+                                            Conexión con el Exterior: Incorporación de grandes ventanales, terrazas o porches que extienden el espacio habitable hacia el entorno.
+                                        </p>
 
-                                <h6 class="mt-3">Características</h6>
-                                <ul>
-                                    <li>Encielado completo de 45m²</li>
-                                    <li>Terminación elegante con molduras</li>
-                                    <li>Materiales de primera calidad</li>
-                                </ul>
-                                <h6 class="mt-3">Cliente</h6>
-                                <p>Familia Castro - Providencia</p>
+                                        <h6 class="mt-3">Características</h6>
+                                        <ul>
+                                            <li>Encielado completo de 45m²</li>
+                                            <li>Terminación elegante con molduras</li>
+                                            <li>Materiales de primera calidad</li>
+                                        </ul>
+                                        <h6 class="mt-3">Cliente</h6>
+                                        <p>Familia Castro - Providencia</p>
+                                    </div>
+                                </div>
+                                <!-- Puedes agregar más imágenes aquí -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
-                        <!-- Puedes agregar más imágenes aquí -->
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
-            </div>
-        </div>
+                    
+                <!-- MODAL CIELOS -- MODAL CIELOS -- MODAL CIELOS -->
+                <div class="modal fade" id="modal_cielos" tabindex="-1" aria-labelledby="modalProyecto2Label" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalProyecto2Label" style="color:rgb(38,35,224);">Detalles trabajo de cielos</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="imagenes/cielo_cielo1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                        <img src="imagenes/cielo_cielo2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                        <img src="imagenes/cielo_cielo3.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Descripción</h6>
+                                        <p>La reparación de un techo de volcanita (yeso-cartón) dañado implica retirar el material afectado, fijar una nueva plancha a la estructura, encintar y masillar las juntas, lijar para suavizar y finalmente pintar. Es crucial solucionar la filtración de agua subyacente antes de reparar y usar materiales resistentes a la humedad (RH) si es necesario, para prevenir futuros daños.
+                                        </p>
+
+                                        <h6 class="mt-3">Características</h6>
+                                        <ul>
+                                            <li>Seguridad y Preparación: Desconectar la electricidad, usar elementos de protección personal (mascarilla, lentes, guantes), remover el material dañado por humedad hasta encontrar estructura firme.</li>
+                                            
+                                            <li>Corte y Ajuste: Cortar la sección dañada en forma rectangular o cuadrada para facilitar la instalación del parche, asegurándose de que los bordes descansen sobre la estructura de soporte (perfiles).</li>
+
+                                            <li>Fijación: Instalar un trozo de plancha de volcanita (o volcanita RH para baños/cocinas) del mismo espesor, fijándola firmemente a la estructura con tornillos autoperforantes.</li>
+
+                                            <li>Tratamiento de Juntas: Aplicar cinta de fibra de vidrio o de papel en las uniones y cubrir con masilla base o compuesto para juntas usando llana y espátula.</li>
+
+                                            <li>Lijado y Terminación: Una vez seco, lijar la superficie hasta obtener un acabado uniforme. Aplicar una segunda capa de masilla si es necesario.</li>
+
+                                            <li>Pintura: Aplicar pintura antihongos o sellador para asegurar la durabilidad, especialmente si el daño fue por humedad</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Puedes agregar más imágenes aquí -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
              
-             
+
+                <!-- MODAL PISO FLOTANTE --MODAL PISO FLOTANTE -- MODAL PISO FLOTANTE --MODAL PISO FLOTANTE -->
+                <div class="modal fade" id="modal_piso" tabindex="-1" aria-labelledby="modalProyecto3Label" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalProyecto3Label" style="color:rgb(38,35,224);">Detalles Piso flotante</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="imagenes/piso_flotante1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                        <img src="imagenes/piso_flotante2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Descripción</h6>
+                                        <p>La instalación de piso flotante es un método rápido y sencillo sin adhesivos ni clavos, donde las tablas se unen mediante un sistema de "clic" sobre una espuma niveladora. Es crucial dejar una separación de 1 cm con los muros para la dilatación, nivelar la superficie y dejar reposar el material 48 horas antes de instalarlo. Este tipo de piso es ideal para áreas interiores, ofreciendo una apariencia elegante y fácil mantenimiento.
+                                        </p>
+
+                                        <h6 class="mt-3">Características</h6>
+                                        <ul>
+                                            <li>Seguridad y Preparación: Desconectar la electricidad, usar elementos de protección personal (mascarilla, lentes, guantes), remover el material dañado por humedad hasta encontrar estructura firme.</li>
+                                            
+                                            <li>Corte y Ajuste: Cortar la sección dañada en forma rectangular o cuadrada para facilitar la instalación del parche, asegurándose de que los bordes descansen sobre la estructura de soporte (perfiles).</li>
+
+                                            <li>Fijación: Instalar un trozo de plancha de volcanita (o volcanita RH para baños/cocinas) del mismo espesor, fijándola firmemente a la estructura con tornillos autoperforantes.</li>
+
+                                            <li>Tratamiento de Juntas: Aplicar cinta de fibra de vidrio o de papel en las uniones y cubrir con masilla base o compuesto para juntas usando llana y espátula.</li>
+
+                                            <li>Lijado y Terminación: Una vez seco, lijar la superficie hasta obtener un acabado uniforme. Aplicar una segunda capa de masilla si es necesario.</li>
+
+                                            <li>Pintura: Aplicar pintura antihongos o sellador para asegurar la durabilidad, especialmente si el daño fue por humedad</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Puedes agregar más imágenes aquí -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>

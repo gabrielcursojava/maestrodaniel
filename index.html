@@ -1,3 +1,4 @@
+<!-- Index Page -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,12 +45,27 @@
         }
         /* FIN de CSS's para que las fotos se muevan */
     
+        /* MARCO TENUE A TODAS LAS FOTOS */
+        .col-md-6 img {
+            border: 1px solid rgba(0, 0, 0, 0.1);  /* Marco tenue gris */
+            padding: 5px;                           /* Espacio interno */
+            background-color: #f8f9fa;             /* Fondo muy claro */
+            margin-bottom: 15px;                   /* Separación entre fotos */
+            transition: all 0.3s ease;             /* Transición suave */
+        }
+
+        /* Efecto hover opcional (sutil) */
+        .col-md-6 img:hover {
+            border-color: rgba(0, 0, 0, 0.2);      /* Marco un poco más oscuro al pasar el mouse */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra muy suave */
+        }
+        /* FIN MARCO TENUE A TODAS LAS FOTOS */
+
     </style>
     
 </head>
 
 <body>
-
     <!-- ========== MENÚ DE NAVEGACIÓN ========== -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -108,9 +124,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Reparación de cielos</h5>
                             <p class="card-text">Encielado completo empleando técnicas para una elegante terminación</p>
-
                             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_cielos">Ver más</button>
-
                         </div>
                     </div>
                 </div>
@@ -123,9 +137,7 @@
                             <h5 class="card-title">Instalación de piso flotante</h5>
                             <p class="card-text">Preparación de la superficie, colocación de la barrera de humedad y manta, junta de dilatación, Instalación de las tablas, Cortes y trabado,
                             Terminaciones y zócalos</p>
-                            
                             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_piso">Ver más</button>
-
                         </div>
                     </div>
                 </div>
@@ -139,7 +151,7 @@
                             <p class="card-text">Como maestro soldador mi labor es unificar una o más piezas metálicas.
                              mediante el método de la soldadura, hago diferentes trabajos como; la fabricación, arreglo o 
                              instalación de diferentes elementos de metal, como pueden ser vigas, portones, rejas, escaleras, adornos, muebles, maquinarias y más.</p>
-                            <a href="#" class="btn btn-outline-primary">Ver más</a>
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_soldadura">Ver más</button>
                         </div>
                     </div>
                 </div>
@@ -159,7 +171,7 @@
                              y obras menores son una solución práctica y efectiva para quienes necesitan realizar reparaciones y
                              remodelaciones en sus hogares u oficinas sin la necesidad de ejecutar una construcción mayor.
                              Usted tendrá la seguridad de que sus proyectos serán realizados de manera efectiva y eficiente.</p>
-                            <a href="#" class="btn btn-outline-primary">Ver más</a>
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_albanileria">Ver más</button>
                         </div>
                     </div>
                 </div>
@@ -174,12 +186,12 @@
                             <p class="card-text">La colocación de cerámicas implica un proceso técnico de revestimiento que abarca desde la planificación
                              y nivelación de la superficie hasta la adhesión, fraguado (empastado) y limpieza final. Requiere preparar el sustrato,
                              aplicar adhesivo con llana dentada, asegurar la nivelación con crucetas y realizar cortes precisos.</p>
-                            <a href="#" class="btn btn-outline-primary">Ver más</a>
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_ceramica">Ver más</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- MODAL CABAÑA - MODAL CABAÑA-- MODAL CABAÑA --->
+                <!-- (1) MODAL CABAÑA - MODAL CABAÑA-- MODAL CABAÑA --->
                 <!-- Modal para Proyecto 1 -->
                 <div class="modal fade" id="modal_cabana1" tabindex="-1" aria-labelledby="modalProyecto1Label" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -196,7 +208,7 @@
                                         <img src="imagenes/cabana1_dormitorio2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
                                     </div>
                                     <div class="col-md-6">
-                                        <h6>Descripción</h6>
+                                        <h6><strong>Descripción</strong></h6>
                                         <p>Cabaña campestre en pino, una super cabaña en madera estilo artesanal. Habitación suite,
                                             materiales naturales y Duraderos: La madera es el material predominante, idealmente tratada para resistir la humedad, opcionalmente piedra o concreto en los cimientos para proteger la estructura.
                                             Aislamiento y Eficiencia: Se emplea materiales que mantienen la calidez en invierno y frescura en verano, garantizando eficiencia energética.
@@ -206,13 +218,13 @@
                                             Conexión con el Exterior: Incorporación de grandes ventanales, terrazas o porches que extienden el espacio habitable hacia el entorno.
                                         </p>
 
-                                        <h6 class="mt-3">Características</h6>
+                                        <h6 class="mt-3"><strong>Características</strong></h6>
                                         <ul>
                                             <li>Encielado completo de 45m²</li>
                                             <li>Terminación elegante con molduras</li>
                                             <li>Materiales de primera calidad</li>
                                         </ul>
-                                        <h6 class="mt-3">Cliente</h6>
+                                        <h6 class="mt-3"><strong>Cliente</strong></h6>
                                         <p>Familia Castro - Providencia</p>
                                     </div>
                                 </div>
@@ -225,7 +237,7 @@
                     </div>
                 </div>
                     
-                <!-- MODAL CIELOS -- MODAL CIELOS -- MODAL CIELOS -->
+                <!-- (2) MODAL CIELOS -- MODAL CIELOS -- MODAL CIELOS -->
                 <div class="modal fade" id="modal_cielos" tabindex="-1" aria-labelledby="modalProyecto2Label" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -241,23 +253,23 @@
                                         <img src="imagenes/cielo_cielo3.jpg" class="img-fluid rounded" alt="Proyecto detalle">
                                     </div>
                                     <div class="col-md-6">
-                                        <h6>Descripción</h6>
+                                        <h6><strong>Descripción</strong></h6>
                                         <p>La reparación de un techo de volcanita (yeso-cartón) dañado implica retirar el material afectado, fijar una nueva plancha a la estructura, encintar y masillar las juntas, lijar para suavizar y finalmente pintar. Es crucial solucionar la filtración de agua subyacente antes de reparar y usar materiales resistentes a la humedad (RH) si es necesario, para prevenir futuros daños.
                                         </p>
 
-                                        <h6 class="mt-3">Características</h6>
+                                        <h6 class="mt-3"><strong>Característicasy método de trabajo</strong></h6>
                                         <ul>
-                                            <li>Seguridad y Preparación: Desconectar la electricidad, usar elementos de protección personal (mascarilla, lentes, guantes), remover el material dañado por humedad hasta encontrar estructura firme.</li>
+                                            <li><strong>Seguridad y Preparación:</strong> Desconectar la electricidad, usar elementos de protección personal (mascarilla, lentes, guantes), remover el material dañado por humedad hasta encontrar estructura firme.</li>
                                             
-                                            <li>Corte y Ajuste: Cortar la sección dañada en forma rectangular o cuadrada para facilitar la instalación del parche, asegurándose de que los bordes descansen sobre la estructura de soporte (perfiles).</li>
+                                            <li><strong>Corte y Ajuste:</strong> Cortar la sección dañada en forma rectangular o cuadrada para facilitar la instalación del parche, asegurándose de que los bordes descansen sobre la estructura de soporte (perfiles).</li>
 
-                                            <li>Fijación: Instalar un trozo de plancha de volcanita (o volcanita RH para baños/cocinas) del mismo espesor, fijándola firmemente a la estructura con tornillos autoperforantes.</li>
+                                            <li><strong>Fijación:</strong> Instalar un trozo de plancha de volcanita (o volcanita RH para baños/cocinas) del mismo espesor, fijándola firmemente a la estructura con tornillos autoperforantes.</li>
 
-                                            <li>Tratamiento de Juntas: Aplicar cinta de fibra de vidrio o de papel en las uniones y cubrir con masilla base o compuesto para juntas usando llana y espátula.</li>
+                                            <li><strong>Tratamiento de Juntas:</strong> Aplicar cinta de fibra de vidrio o de papel en las uniones y cubrir con masilla base o compuesto para juntas usando llana y espátula.</li>
 
-                                            <li>Lijado y Terminación: Una vez seco, lijar la superficie hasta obtener un acabado uniforme. Aplicar una segunda capa de masilla si es necesario.</li>
+                                            <li><strong>Lijado y Terminación:</strong> Una vez seco, lijar la superficie hasta obtener un acabado uniforme. Aplicar una segunda capa de masilla si es necesario.</li>
 
-                                            <li>Pintura: Aplicar pintura antihongos o sellador para asegurar la durabilidad, especialmente si el daño fue por humedad</li>
+                                            <li><strong>Pintura:</strong> Aplicar pintura antihongos o sellador para asegurar la durabilidad, especialmente si el daño fue por humedad</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -270,7 +282,7 @@
                     </div>
                 </div>
 
-                <!-- MODAL PISO FLOTANTE --MODAL PISO FLOTANTE -- MODAL PISO FLOTANTE --MODAL PISO FLOTANTE -->
+                <!-- (3) MODAL PISO FLOTANTE --MODAL PISO FLOTANTE -- MODAL PISO FLOTANTE --MODAL PISO FLOTANTE -->
                 <div class="modal fade" id="modal_piso" tabindex="-1" aria-labelledby="modalProyecto3Label" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -285,27 +297,175 @@
                                         <img src="imagenes/piso_flotante2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
                                     </div>
                                     <div class="col-md-6">
-                                        <h6>Descripción</h6>
+                                        <h6><strong>Descripción</strong></h6>
                                         <p>La instalación de piso flotante es un método rápido y sencillo sin adhesivos ni clavos, donde las tablas se unen mediante un sistema de "clic" sobre una espuma niveladora. Es crucial dejar una separación de 1 cm con los muros para la dilatación, nivelar la superficie y dejar reposar el material 48 horas antes de instalarlo. Este tipo de piso es ideal para áreas interiores, ofreciendo una apariencia elegante y fácil mantenimiento.
                                         </p>
 
-                                        <h6 class="mt-3">Características</h6>
+                                        <h6 class="mt-3"><strong>Características</strong></h6>
                                         <ul>
-                                            <li>Seguridad y Preparación: Desconectar la electricidad, usar elementos de protección personal (mascarilla, lentes, guantes), remover el material dañado por humedad hasta encontrar estructura firme.</li>
+                                            <li><strong>Seguridad y Preparación:</strong> Desconectar la electricidad, usar elementos de protección personal (mascarilla, lentes, guantes), remover el material dañado por humedad hasta encontrar estructura firme.</li>
                                             
-                                            <li>Corte y Ajuste: Cortar la sección dañada en forma rectangular o cuadrada para facilitar la instalación del parche, asegurándose de que los bordes descansen sobre la estructura de soporte (perfiles).</li>
+                                            <li><strong>Corte y Ajuste:</strong> Cortar la sección dañada en forma rectangular o cuadrada para facilitar la instalación del parche, asegurándose de que los bordes descansen sobre la estructura de soporte (perfiles).</li>
 
-                                            <li>Fijación: Instalar un trozo de plancha de volcanita (o volcanita RH para baños/cocinas) del mismo espesor, fijándola firmemente a la estructura con tornillos autoperforantes.</li>
+                                            <li><strong>Fijación:</strong> Instalar un trozo de plancha de volcanita (o volcanita RH para baños/cocinas) del mismo espesor, fijándola firmemente a la estructura con tornillos autoperforantes.</li>
 
-                                            <li>Tratamiento de Juntas: Aplicar cinta de fibra de vidrio o de papel en las uniones y cubrir con masilla base o compuesto para juntas usando llana y espátula.</li>
+                                            <li><strong>Tratamiento de Juntas:</strong> Aplicar cinta de fibra de vidrio o de papel en las uniones y cubrir con masilla base o compuesto para juntas usando llana y espátula.</li>
 
-                                            <li>Lijado y Terminación: Una vez seco, lijar la superficie hasta obtener un acabado uniforme. Aplicar una segunda capa de masilla si es necesario.</li>
+                                            <li><strong>Lijado y Terminación:</strong> Una vez seco, lijar la superficie hasta obtener un acabado uniforme. Aplicar una segunda capa de masilla si es necesario.</li>
 
-                                            <li>Pintura: Aplicar pintura antihongos o sellador para asegurar la durabilidad, especialmente si el daño fue por humedad</li>
+                                            <li><strong>Pintura:</strong> Aplicar pintura antihongos o sellador para asegurar la durabilidad, especialmente si el daño fue por humedad</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <!-- Puedes agregar más imágenes aquí -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- (4) MODAL SOLDADURA --MODAL SOLDADURA --MODAL SOLDADURA --MODAL SOLDADURA --MODAL SOLDADURA -->
+                <div class="modal fade" id="modal_soldadura" tabindex="-1" aria-labelledby="modalProyecto4Label" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalProyecto4Label" style="color:rgb(38,35,224);">Detalles de trabajos en soldadura</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="imagenes/soldadura_soldadura1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                        <img src="imagenes/soldadura_soldadura2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6><strong>Descripción</strong></h6>
+                                        <p>El trabajo de soldadura en rejas, portones y estructuras metálicas implica la fabricación, instalación y reparación de elementos de seguridad y cierre, utilizando principalmente técnicas de soldadura al arco (SMAW/electrodo), MIG/MAG (microalambre) o TIG. Incluye corte, trazado, habilitado de metales y ensamblaje preciso (escuadrado) para asegurar rigidez y durabilidad, a menudo en perfiles de acero.
+                                        </p>
+
+                                        <h6 class="mt-3"><strong>Características</strong></h6>
+                                        <ul>
+                                            <li><strong>Fabricación a Medida:</strong> Corte y unión de perfiles metálicos ( fierros de 40 mm, perfiles 40x30, 3 mm espesor) para marcos de rejas, portones corredizos o batientes.</li>
+                                            
+                                            <li><strong>Corte y Ajuste:</strong> Cortar la sección dañada en forma rectangular o cuadrada para facilitar la instalación del parche, asegurándose de que los bordes descansen sobre la estructura de soporte (perfiles).</li>
+
+                                            <li><strong>Fijación:</strong> Instalar un trozo de plancha de volcanita (o volcanita RH para baños/cocinas) del mismo espesor, fijándola firmemente a la estructura con tornillos autoperforantes.</li>
+
+                                            <li><strong>Reparación y Mantenimiento:</strong> Refuerzo de estructuras existentes, cambio de perfiles oxidados o dañados, y arreglo de componentes de portones, incluyendo soldadura en terreno.</li>
+
+                                            <li><strong>Montaje:</strong> Instalación de estructuras en terreno, fijación a muros de hormigón o pilares metálicos.</li>
+                                        </ul>
+
+                                        <h6 class="mt-3"><strong>Ejemplos de Trabajos Específicos</strong></h6>
+                                        <ul>
+                                            <li><strong>Portones Corredizos:</strong> Fabricación, soldadura de perfiles y montaje de rieles.</li>
+
+                                            <li><strong>Rejas de Ventana:</strong> Soldadura de protecciones de seguridad.</li>
+
+                                            <li><strong>Estructuras:</strong> Construcción de protecciones para cierres perimetrales, soporte de techumbres y escaleras.</li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- (5) MODAL ALBANILERIA --MODAL ALBANILERIA --MODAL ALBANILERIA --MODAL ALBANILERIA --MODAL ALBANILERIA -->
+                <div class="modal fade" id="modal_albanileria" tabindex="-1" aria-labelledby="modalProyecto5Label" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalProyecto5Label" style="color:rgb(38,35,224);">Albañileria</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="imagenes/albanileria_albanileria1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                        <img src="imagenes/albanileria_albanileria2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                        <img src="imagenes/albanileria_albanileria3.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6><strong>Descripción</strong></h6>
+                                        <p>El trabajo de albañilería es un sistema de construcción tradicional conformado únicamente por unidades de albañilería (ladrillos, bloques de concreto o piedra) unidas por mortero (mezcla de cemento/cal y arena), y en algunos casos, segun la estructura de que se trate, se emplea un refuerzo estructural interno de acero (por ejemplo, cadenas). Se caracteriza por resistir cargas principalmente por compresión, siendo ideal para muros divisorios o estructuras en altura.
+                                        </p>
+                                        <p><strong>Radieres:</strong> Un radier es una losa de hormigón armado, de espesor generalmente entre 7 y 15 cm, construida sobre un terreno compactado para servir como base sólida, nivelada y seca en superficies exteriores o techadas. Incluye una cama de ripio, barrera de humedad (nylon), y opcionalmente malla de acero para mayor resistencia ante cargas</p>
+
+                                        <h6 class="mt-3">Características generales</h6>
+                                        <ul>
+                                            <li><strong>Composición:</strong> Frecuentemnte se usa ladrillos y mortero</li>
+                                            
+                                            <li><strong>Resistencia:</strong>Excelente capacidad de carga vertical (compresión)</li>
+
+                                            <li><strong>Uso:</strong>Principalmente en cimentaciones, muros divisorios, bardas perimetrales y viviendas, en ocaciones, segun sea el caso, se requiere barras de acero, o cadenas.</li>
+
+                                        </ul>
+
+                                        <h6 class="mt-3">Componentes y Materiales:</h6>
+                                        <ul>
+                                            <li><strong>Unidades:</strong> Ladrillos de arcilla, bloques de hormigón/cemento, piedra, etc..</li>
+
+                                            <li><strong>Mortero:</strong> Mezcla aglomerante que une las piezas.</li>
+              
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- (6) MODAL CERAMICA CERAMICA --CERAMICA --CERAMICA --CERAMICA --CERAMICA --CERAMICA --CERAMICA -->
+                <div class="modal fade" id="modal_ceramica" tabindex="-1" aria-labelledby="modalProyecto6Label" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalProyecto6Label" style="color:rgb(38,35,224);">Ceramicas instaladas a la fecha</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <h6><strong>Descripción</strong></h6>
+                                <p>Las imagenes hablan por si solas. Sean estos, espacios pequeños, con superficies irregulares, o quieres cambiar esas viejas baldosas o ceramicos quebrados o picados en los extremos. Llamame y veremos las dimensiones y el valor. Dispongo de flete, y lo mas importante, la sugerencia para que el trabajo final quede lo mas hermoso posible. 
+                                </p>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="imagenes/ceramica_ceramica1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                        <img src="imagenes/ceramica_ceramica2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <img src="imagenes/ceramica_ceramica3.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                        <img src="imagenes/ceramica_ceramica4.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                        <p>Trabajos realizados entre el <strong>2024-2024.</strong> Algunos diseños acá expuestos puede que ya no se fabriquen, 
+                                            pero en su reemplazo hay ceramicos igual o mas hermosos. 
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <img src="imagenes/ceramica_ceramica5.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                        <img src="imagenes/ceramica_ceramica6.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <img src="imagenes/ceramica_ceramica7.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                        <img src="imagenes/ceramica_ceramica8.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                    </div>
+
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -324,6 +484,7 @@
             <p class="mb-0">© 2026 Fonos: 9 7721 1570 - 9 4205 8175</p>
             <!-- Aquí va tu contador de visitas (opcional) -->
             <img src="https://visitor-badge.laobi.icu/badge?page_id=gabrielcursojava.maestrodaniel" alt="Visitas" class="mt-2">
+            <p>GMI Desarrollo de Sistemas Informaticos f: 9 7721 1570 - Construye con nosotros la página de tu emprendimiento</p>
         </div>
     </footer>
 

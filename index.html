@@ -2,17 +2,30 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maestro Daniel Castro | Construcción y Remodelaciones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Daniel Castro - Maestro constructor especializado en albañilería, construcciones, remodelaciones y terminaciones en La Florida">
+    <title>Daniel Castro | Maestro Constructor - La Florida</title>
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* ========== ESTILOS GENERALES ========== */
+        /* ========== RESET Y VARIABLES ========== */
+        :root {
+            --primary-color: #f0a500;
+            --primary-dark: #d49400;
+            --dark-bg: #1a1a2e;
+            --dark-bg2: #16213e;
+            --dark-bg3: #0f3460;
+            --text-light: rgba(255,255,255,0.9);
+            --text-muted: #666;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -20,48 +33,89 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
             background-color: #f5f5f5;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* ========== BARRA DE PROGRESO SCROLL ========== */
+        .progress-bar-scroll {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #f0a500, #ff6b6b, #f0a500);
+            z-index: 9999;
+            transition: width 0.2s ease;
+            box-shadow: 0 0 10px rgba(240,165,0,0.5);
         }
         
         /* ========== MENÚ DE NAVEGACIÓN ========== */
         .navbar {
             background-color: rgba(0, 0, 0, 0.85) !important;
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            padding: 1rem 0;
+        }
+        
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background-color: rgba(0, 0, 0, 0.95) !important;
         }
         
         .navbar-brand {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #f0a500 !important;
+            color: var(--primary-color) !important;
+            transition: var(--transition);
+        }
+        
+        .navbar-brand:hover {
+            transform: scale(1.05);
         }
         
         .navbar-nav .nav-link {
             color: white !important;
             font-weight: 500;
             margin: 0 10px;
-            transition: color 0.3s ease;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 80%;
         }
         
         .navbar-nav .nav-link:hover {
-            color: #f0a500 !important;
+            color: var(--primary-color) !important;
+            transform: translateY(-2px);
         }
         
-        /* ========== SECCIÓN HERO (PRINCIPAL) ========== */
+        /* ========== SECCIÓN HERO ========== */
         .hero {
-            min-height: 90vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            /*background-image: url('imagenes/cabana_portada.jpg');  */
-            /* background: url("img/casa.jpg") center/cover no-repeat; */
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg2) 50%, var(--dark-bg3) 100%);
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
         }
-
-
-        /* Efecto de opacidad con patrón de construcción */
+        
         .hero::before {
             content: "";
             position: absolute;
@@ -75,6 +129,16 @@
             pointer-events: none;
         }
         
+        /* Partículas flotantes */
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(240,165,0,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
         .hero-content {
             position: relative;
             z-index: 2;
@@ -82,18 +146,34 @@
         }
         
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
+            font-size: 4rem;
+            font-weight: 800;
             color: white;
+            margin-bottom: 1rem;
         }
         
         .hero h1 span {
-            color: #f0a500;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero h1 span::before {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--primary-color);
+            opacity: 0.3;
+            z-index: -1;
         }
         
         .hero .lead {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.9);
+            font-size: 1.3rem;
+            color: var(--text-light);
+            font-weight: 300;
         }
         
         /* Badges de servicios */
@@ -101,85 +181,324 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin: 25px 0;
+            margin: 30px 0;
         }
         
         .service-badge {
             background: rgba(240, 165, 0, 0.15);
             backdrop-filter: blur(5px);
-            padding: 8px 20px;
-            border-radius: 30px;
-            color: #f0a500;
+            padding: 10px 25px;
+            border-radius: 50px;
+            color: var(--primary-color);
             font-weight: 500;
             border: 1px solid rgba(240, 165, 0, 0.3);
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            cursor: pointer;
         }
         
         .service-badge:hover {
             background: rgba(240, 165, 0, 0.3);
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.05);
         }
         
-        /* Botón principal */
+        /* Botones personalizados */
         .btn-primary-custom {
-            background-color: #f0a500;
+            background-color: var(--primary-color);
             border: none;
-            padding: 12px 35px;
+            padding: 14px 40px;
             font-weight: bold;
-            border-radius: 40px;
-            transition: all 0.3s ease;
-            color: #1a1a2e;
+            border-radius: 50px;
+            transition: var(--transition);
+            color: var(--dark-bg);
+            font-size: 1.1rem;
         }
         
         .btn-primary-custom:hover {
-            background-color: #d49400;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
         
-        /* ========== CARACTERÍSTICAS (3 COLUMNAS) ========== */
+        .btn-primary-custom i {
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-primary-custom:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Indicador de scroll */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        .scroll-indicator a {
+            color: white;
+            font-size: 2rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .scroll-indicator a:hover {
+            color: var(--primary-color);
+            transform: translateY(5px);
+        }
+        
+        /* ========== SECCIÓN DE CARACTERÍSTICAS ========== */
         .features-section {
-            padding: 70px 0;
-            background-color: white;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg2) 50%, var(--dark-bg3) 100%);
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .section-title .title-divider {
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 0 auto;
+            border-radius: 2px;
         }
         
         .feature-card {
             text-align: center;
-            padding: 30px 20px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            background: white;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            padding: 40px 25px;
+            border-radius: 20px;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(240, 165, 0, 0.3);
         }
         
         .feature-icon {
-            font-size: 3rem;
-            color: #f0a500;
+            font-size: 3.5rem;
+            color: var(--primary-color);
             margin-bottom: 20px;
         }
         
         .feature-card h4 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: bold;
             margin-bottom: 15px;
-            color: #1a1a2e;
+            color: white;
         }
         
         .feature-card p {
-            color: #666;
+            color: rgba(255, 255, 255, 0.8);
             font-size: 0.95rem;
+        }
+        
+        /* ========== SECCIÓN PORTFOLIO ========== */
+        .portfolio-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        /* Filtros */
+        .portfolio-filters {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 30px;
+            margin: 5px 8px;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(240,165,0,0.3);
+        }
+        
+        /* Cards modernas */
+        .proyecto-item {
+            transition: var(--transition);
+        }
+        
+        .proyecto-item.hide {
+            display: none;
+        }
+        
+        .card {
+            background: white;
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .card-img-top {
+            /* height: 260px; */
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        
+        .card-body {
+            padding: 1.8rem;
+        }
+        
+        .card-title {
+            color: var(--dark-bg);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card-text {
+            color: var(--text-muted);
+            line-height: 1.7;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50px;
+            padding: 8px 25px;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(240,165,0,0.3);
+        }
+        
+        /* ========== MODALES MEJORADOS ========== */
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+        }
+        
+        .modal-header {
+            border-bottom: 3px solid var(--primary-color);
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg2) 100%);
+            border-radius: 20px 20px 0 0;
+            padding: 1.5rem;
+        }
+        
+        .modal-title {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+        }
+        
+        .modal-body img {
+            margin-bottom: 15px;
+            border-radius: 12px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .modal-body img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .modal-body h6 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        /* ========== WHATSAPP FLOTANTE ========== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: var(--transition);
+            z-index: 1000;
+            cursor: pointer;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            color: white;
+        }
+        
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin: 0;
+            opacity: 0.8;
         }
         
         /* ========== ANIMACIONES ========== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -187,7 +506,37 @@
             }
         }
         
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
         /* ========== RESPONSIVE ========== */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.2rem;
@@ -195,6 +544,11 @@
             
             .hero {
                 text-align: center;
+                min-height: 90vh;
+            }
+            
+            .hero .lead {
+                font-size: 1rem;
             }
             
             .service-badges {
@@ -204,36 +558,48 @@
             .feature-card {
                 margin-bottom: 20px;
             }
+            
+            .card-img-top {
+                width: 100%;
+                height: auto;  /* Sin altura fija, muestra la imagen completa */
+                object-fit: contain;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .filter-btn {
+                padding: 6px 18px;
+                margin: 5px;
+                font-size: 0.8rem;
+            }
+            
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .service-badge {
+                font-size: 0.75rem;
+                padding: 5px 15px;
+            }
+            
+            .btn-primary-custom {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
         }
 
-        /* SEGUNDO SECTION */
-        /* Cambiar el fondo de la sección de características */
-        .features-section_ {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            padding: 70px 0;
-        }
-
-        /* Modificar las tarjetas para que se vean bien sobre fondo oscuro */
-        .features-section_ .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .features-section_ .feature-card h4 {
-            color: white;
-        }
-
-        .features-section_ .feature-card p {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .features-section_ .feature-icon {
-            color: #f0a500;
-        }
-        /* FIN SEGUNDA SECTION*/
-
-        /* TAMAÑO DE CONTADOR Y GMI DESARROLLOS */
         #micapa {
             font-size: 0.575rem; /* 14px si base es 16px */
             color: white;
@@ -244,33 +610,37 @@
 </head>
 <body>
 
-<!-- ========== MENÚ DE NAVEGACIÓN ========== -->
+<!-- Barra de progreso scroll -->
+<div class="progress-bar-scroll"></div>
+
+<!-- Menú de Navegación -->
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Maestro Daniel</a>
+        <a class="navbar-brand" href="#">🏠 Daniel Castro</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon bg-light rounded"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Inicio</a>
+                    <a class="nav-link active" href="#inicio">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#portafolio">Portafolio</a>
                 </li>
                 <li class="nav-item">
-                    <!-- <a class="nav-link" href="contacto.html">Contacto</a> -->
-                    <a class="nav-link active" href="trabajando_para_usted.html">Contacto</a>
-
+                    <a class="nav-link" href="#servicios">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto">Contacto</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- ========== SECCIÓN HERO ========== -->
-<section class="hero">
+<!-- Sección Hero -->
+<section class="hero" id="inicio">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 hero-content">
@@ -278,408 +648,41 @@
                 <p class="lead mb-4">El mejor maestro constructor de La Florida</p>
                 
                 <div class="service-badges">
-                    <span class="service-badge">🔨 Albañilería</span>
-                    <span class="service-badge">🏗️ Construcciones</span>
-                    <span class="service-badge">🔄 Remodelaciones</span>
-                    <span class="service-badge">✨ Terminaciones</span>
+                    <span class="service-badge" data-filter="albanileria">🔨 Albañilería</span>
+                    <span class="service-badge" data-filter="construccion">🏗️ Construcciones</span>
+                    <span class="service-badge" data-filter="remodelacion">🔄 Remodelaciones</span>
+                    <span class="service-badge" data-filter="terminaciones">✨ Terminaciones</span>
                 </div>
 
                 <a href="#portafolio" class="btn btn-primary-custom mt-3">
                     Revisa mis trabajos <i class="bi bi-arrow-right"></i>
-
                 </a>
             </div>
         </div>
     </div>
-</section> 
+    
+    <div class="scroll-indicator">
+        <a href="#servicios">
+            <i class="bi bi-chevron-double-down"></i>
+        </a>
+    </div>
+</section>
 
-<!-- ========== SECCIÓN DE CARACTERÍSTICAS ========== -->
-<!-- <section class="features-section_"> -->
-<section class="features-section_" id="portafolio">
+<!-- Sección de Características / Servicios -->
+<section class="features-section" id="servicios">
     <div class="container">
-
-            <div class="row">
-                <!-- Proyecto 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="imagenes/cabana1.jpeg" class="card-img-top" alt="Proyecto 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Construcción de cabaña completa</h5>
-                            <p class="card-text">En las cercanias del bosque valdiviano. El construir una cabaña campestre es todo un proceso integral que
-                             combina diseño personalizado, selección de materiales, cimentación y acabados en un entorno natural.
-                             Este proyecto requiere planificar fases clave (obra negra, gris y blanca), considerar la logística en zonas
-                             alejadas y buscar armonía con el paisaje.</p>
-                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_cabana1">Ver más</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Proyecto 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="imagenes/Castro_trabajando.jpeg" class="card-img-top" alt="Proyecto 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Reparación de cielos</h5>
-                            <p class="card-text">Encielado completo empleando técnicas para una elegante terminación</p>
-                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_cielos">Ver más</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Proyecto 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="imagenes/piso_flotante.jpg" class="card-img-top" alt="Proyecto 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Instalación de piso flotante</h5>
-                            <p class="card-text">Preparación de la superficie, colocación de la barrera de humedad y manta, junta de dilatación, Instalación de las tablas, Cortes y trabado,
-                            Terminaciones y zócalos</p>
-                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_piso">Ver más</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Proyecto 4 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="imagenes/soldadura.jpg" class="card-img-top" alt="Proyecto 4">
-                        <div class="card-body">
-                            <h5 class="card-title">Soldaduras</h5>
-                            <p class="card-text">Como maestro soldador mi labor es unificar una o más piezas metálicas.
-                             mediante el método de la soldadura, hago diferentes trabajos como; la fabricación, arreglo o 
-                             instalación de diferentes elementos de metal, como pueden ser vigas, portones, rejas, escaleras, adornos, muebles, maquinarias y más.</p>
-                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_soldadura">Ver más</button>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Proyecto 5 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="imagenes/albanileria.jpg" class="card-img-top" alt="Proyecto 4">
-                        <div class="card-body">
-                            <h5 class="card-title">Albañileria</h5>
-                            <p class="card-text">Los servicios de construcción que ofrecemos son un conjunto de servicios
-                             especializados que se enfocan en la realización de reparaciones y remodelaciones en viviendas,
-                             edificios y otras estructuras. Estos servicios pueden incluir reparaciones de paredes y techos, construcción de
-                             estructuras como muros, terrazas y escaleras, utilizando herramientas y técnicas especializadas
-                             para asegurarnos que el trabajo se realice de manera eficiente y segura. En resumen, los servicios de construcción
-                             y obras menores son una solución práctica y efectiva para quienes necesitan realizar reparaciones y
-                             remodelaciones en sus hogares u oficinas sin la necesidad de ejecutar una construcción mayor.
-                             Usted tendrá la seguridad de que sus proyectos serán realizados de manera efectiva y eficiente.</p>
-                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_albanileria">Ver más</button>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Proyecto 6 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="imagenes/ceramica.jpg" class="card-img-top" alt="Proyecto 4">
-                        <div class="card-body">
-                            <h5 class="card-title">Colocación de ceramicas</h5>
-                            <p class="card-text">La colocación de cerámicas implica un proceso técnico de revestimiento que abarca desde la planificación
-                             y nivelación de la superficie hasta la adhesión, fraguado (empastado) y limpieza final. Requiere preparar el sustrato,
-                             aplicar adhesivo con llana dentada, asegurar la nivelación con crucetas y realizar cortes precisos.</p>
-                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_ceramica">Ver más</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- (1) MODAL CABAÑA - MODAL CABAÑA-- MODAL CABAÑA --->
-                <!-- Modal para Proyecto 1 -->
-                <div class="modal fade" id="modal_cabana1" tabindex="-1" aria-labelledby="modalProyecto1Label" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalProyecto1Label" style="color:rgb(38,35,224);">Detalles de Cabaña</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="imagenes/cabana1_imagen1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                        <img src="imagenes/cabana1_dormitorio.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                        <img src="imagenes/cabana1_dormitorio2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h6><strong>Descripción</strong></h6>
-                                        <p>Cabaña campestre en pino, una super cabaña en madera estilo artesanal. Habitación suite,
-                                            materiales naturales y Duraderos: La madera es el material predominante, idealmente tratada para resistir la humedad, opcionalmente piedra o concreto en los cimientos para proteger la estructura.
-                                            Aislamiento y Eficiencia: Se emplea materiales que mantienen la calidez en invierno y frescura en verano, garantizando eficiencia energética.
-                                            Ubicación e Integración: Diseñada para entornos rurales, montañosos o costeros, buscando vistas panorámicas y conexión con la naturaleza.
-                                            Diseño Funcional y Acogedor: Espacios optimizados, a menudo con techos altos o a dos aguas, revestimientos de madera interior y áreas de descanso cómodas.
-                                            Se recomiendan bases elevadas (pilotes) para proteger de la humedad del suelo y facilitar la cimentación en terrenos irregulares.
-                                            Conexión con el Exterior: Incorporación de grandes ventanales, terrazas o porches que extienden el espacio habitable hacia el entorno.
-                                        </p>
-
-                                        <h6 class="mt-3"><strong>Características</strong></h6>
-                                        <ul>
-                                            <li>Encielado completo de 45m²</li>
-                                            <li>Terminación elegante con molduras</li>
-                                            <li>Materiales de primera calidad</li>
-                                        </ul>
-                                        <h6 class="mt-3"><strong>Cliente</strong></h6>
-                                        <p>Familia Castro - Providencia</p>
-                                    </div>
-                                </div>
-                                <!-- Puedes agregar más imágenes aquí -->
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                    
-                <!-- (2) MODAL CIELOS -- MODAL CIELOS -- MODAL CIELOS -->
-                <div class="modal fade" id="modal_cielos" tabindex="-1" aria-labelledby="modalProyecto2Label" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalProyecto2Label" style="color:rgb(38,35,224);">Detalles trabajo de cielos</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="imagenes/cielo_cielo1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                        <img src="imagenes/cielo_cielo2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                        <img src="imagenes/cielo_cielo3.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h6><strong>Descripción</strong></h6>
-                                        <p>La reparación de un techo de volcanita (yeso-cartón) dañado implica retirar el material afectado, fijar una nueva plancha a la estructura, encintar y masillar las juntas, lijar para suavizar y finalmente pintar. Es crucial solucionar la filtración de agua subyacente antes de reparar y usar materiales resistentes a la humedad (RH) si es necesario, para prevenir futuros daños.
-                                        </p>
-
-                                        <h6 class="mt-3"><strong>Característicasy método de trabajo</strong></h6>
-                                        <ul>
-                                            <li><strong>Seguridad y Preparación:</strong> Desconectar la electricidad, usar elementos de protección personal (mascarilla, lentes, guantes), remover el material dañado por humedad hasta encontrar estructura firme.</li>
-                                            
-                                            <li><strong>Corte y Ajuste:</strong> Cortar la sección dañada en forma rectangular o cuadrada para facilitar la instalación del parche, asegurándose de que los bordes descansen sobre la estructura de soporte (perfiles).</li>
-
-                                            <li><strong>Fijación:</strong> Instalar un trozo de plancha de volcanita (o volcanita RH para baños/cocinas) del mismo espesor, fijándola firmemente a la estructura con tornillos autoperforantes.</li>
-
-                                            <li><strong>Tratamiento de Juntas:</strong> Aplicar cinta de fibra de vidrio o de papel en las uniones y cubrir con masilla base o compuesto para juntas usando llana y espátula.</li>
-
-                                            <li><strong>Lijado y Terminación:</strong> Una vez seco, lijar la superficie hasta obtener un acabado uniforme. Aplicar una segunda capa de masilla si es necesario.</li>
-
-                                            <li><strong>Pintura:</strong> Aplicar pintura antihongos o sellador para asegurar la durabilidad, especialmente si el daño fue por humedad</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Puedes agregar más imágenes aquí -->
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- (3) MODAL PISO FLOTANTE --MODAL PISO FLOTANTE -- MODAL PISO FLOTANTE --MODAL PISO FLOTANTE -->
-                <div class="modal fade" id="modal_piso" tabindex="-1" aria-labelledby="modalProyecto3Label" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalProyecto3Label" style="color:rgb(38,35,224);">Detalles Piso flotante</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="imagenes/piso_flotante1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                        <img src="imagenes/piso_flotante2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h6><strong>Descripción</strong></h6>
-                                        <p>La instalación de piso flotante es un método rápido y sencillo sin adhesivos ni clavos, donde las tablas se unen mediante un sistema de "clic" sobre una espuma niveladora. Es crucial dejar una separación de 1 cm con los muros para la dilatación, nivelar la superficie y dejar reposar el material 48 horas antes de instalarlo. Este tipo de piso es ideal para áreas interiores, ofreciendo una apariencia elegante y fácil mantenimiento.
-                                        </p>
-
-                                        <h6 class="mt-3"><strong>Características</strong></h6>
-                                        <ul>
-                                            <li><strong>Seguridad y Preparación:</strong> Desconectar la electricidad, usar elementos de protección personal (mascarilla, lentes, guantes), remover el material dañado por humedad hasta encontrar estructura firme.</li>
-                                            
-                                            <li><strong>Corte y Ajuste:</strong> Cortar la sección dañada en forma rectangular o cuadrada para facilitar la instalación del parche, asegurándose de que los bordes descansen sobre la estructura de soporte (perfiles).</li>
-
-                                            <li><strong>Fijación:</strong> Instalar un trozo de plancha de volcanita (o volcanita RH para baños/cocinas) del mismo espesor, fijándola firmemente a la estructura con tornillos autoperforantes.</li>
-
-                                            <li><strong>Tratamiento de Juntas:</strong> Aplicar cinta de fibra de vidrio o de papel en las uniones y cubrir con masilla base o compuesto para juntas usando llana y espátula.</li>
-
-                                            <li><strong>Lijado y Terminación:</strong> Una vez seco, lijar la superficie hasta obtener un acabado uniforme. Aplicar una segunda capa de masilla si es necesario.</li>
-
-                                            <li><strong>Pintura:</strong> Aplicar pintura antihongos o sellador para asegurar la durabilidad, especialmente si el daño fue por humedad</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Puedes agregar más imágenes aquí -->
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- (4) MODAL SOLDADURA --MODAL SOLDADURA --MODAL SOLDADURA --MODAL SOLDADURA --MODAL SOLDADURA -->
-                <div class="modal fade" id="modal_soldadura" tabindex="-1" aria-labelledby="modalProyecto4Label" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalProyecto4Label" style="color:rgb(38,35,224);">Detalles de trabajos en soldadura</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="imagenes/soldadura_soldadura1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                        <img src="imagenes/soldadura_soldadura2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h6><strong>Descripción</strong></h6>
-                                        <p>El trabajo de soldadura en rejas, portones y estructuras metálicas implica la fabricación, instalación y reparación de elementos de seguridad y cierre, utilizando principalmente técnicas de soldadura al arco (SMAW/electrodo), MIG/MAG (microalambre) o TIG. Incluye corte, trazado, habilitado de metales y ensamblaje preciso (escuadrado) para asegurar rigidez y durabilidad, a menudo en perfiles de acero.
-                                        </p>
-
-                                        <h6 class="mt-3"><strong>Características</strong></h6>
-                                        <ul>
-                                            <li><strong>Fabricación a Medida:</strong> Corte y unión de perfiles metálicos ( fierros de 40 mm, perfiles 40x30, 3 mm espesor) para marcos de rejas, portones corredizos o batientes.</li>
-                                            
-                                            <li><strong>Corte y Ajuste:</strong> Cortar la sección dañada en forma rectangular o cuadrada para facilitar la instalación del parche, asegurándose de que los bordes descansen sobre la estructura de soporte (perfiles).</li>
-
-                                            <li><strong>Fijación:</strong> Instalar un trozo de plancha de volcanita (o volcanita RH para baños/cocinas) del mismo espesor, fijándola firmemente a la estructura con tornillos autoperforantes.</li>
-
-                                            <li><strong>Reparación y Mantenimiento:</strong> Refuerzo de estructuras existentes, cambio de perfiles oxidados o dañados, y arreglo de componentes de portones, incluyendo soldadura en terreno.</li>
-
-                                            <li><strong>Montaje:</strong> Instalación de estructuras en terreno, fijación a muros de hormigón o pilares metálicos.</li>
-                                        </ul>
-
-                                        <h6 class="mt-3"><strong>Ejemplos de Trabajos Específicos</strong></h6>
-                                        <ul>
-                                            <li><strong>Portones Corredizos:</strong> Fabricación, soldadura de perfiles y montaje de rieles.</li>
-
-                                            <li><strong>Rejas de Ventana:</strong> Soldadura de protecciones de seguridad.</li>
-
-                                            <li><strong>Estructuras:</strong> Construcción de protecciones para cierres perimetrales, soporte de techumbres y escaleras.</li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- (5) MODAL ALBANILERIA --MODAL ALBANILERIA --MODAL ALBANILERIA --MODAL ALBANILERIA --MODAL ALBANILERIA -->
-                <div class="modal fade" id="modal_albanileria" tabindex="-1" aria-labelledby="modalProyecto5Label" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalProyecto5Label" style="color:rgb(38,35,224);">Albañileria</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="imagenes/albanileria_albanileria1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                        <img src="imagenes/albanileria_albanileria2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                        <img src="imagenes/albanileria_albanileria3.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h6><strong>Descripción</strong></h6>
-                                        <p>El trabajo de albañilería es un sistema de construcción tradicional conformado únicamente por unidades de albañilería (ladrillos, bloques de concreto o piedra) unidas por mortero (mezcla de cemento/cal y arena), y en algunos casos, segun la estructura de que se trate, se emplea un refuerzo estructural interno de acero (por ejemplo, cadenas). Se caracteriza por resistir cargas principalmente por compresión, siendo ideal para muros divisorios o estructuras en altura.
-                                        </p>
-                                        <p><strong>Radieres:</strong> Un radier es una losa de hormigón armado, de espesor generalmente entre 7 y 15 cm, construida sobre un terreno compactado para servir como base sólida, nivelada y seca en superficies exteriores o techadas. Incluye una cama de ripio, barrera de humedad (nylon), y opcionalmente malla de acero para mayor resistencia ante cargas</p>
-
-                                        <h6 class="mt-3">Características generales</h6>
-                                        <ul>
-                                            <li><strong>Composición:</strong> Frecuentemnte se usa ladrillos y mortero</li>
-                                            
-                                            <li><strong>Resistencia:</strong>Excelente capacidad de carga vertical (compresión)</li>
-
-                                            <li><strong>Uso:</strong>Principalmente en cimentaciones, muros divisorios, bardas perimetrales y viviendas, en ocaciones, segun sea el caso, se requiere barras de acero, o cadenas.</li>
-
-                                        </ul>
-
-                                        <h6 class="mt-3">Componentes y Materiales:</h6>
-                                        <ul>
-                                            <li><strong>Unidades:</strong> Ladrillos de arcilla, bloques de hormigón/cemento, piedra, etc..</li>
-
-                                            <li><strong>Mortero:</strong> Mezcla aglomerante que une las piezas.</li>
-              
-                                        </ul>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- (6) MODAL CERAMICA CERAMICA --CERAMICA --CERAMICA --CERAMICA --CERAMICA --CERAMICA --CERAMICA -->
-                <div class="modal fade" id="modal_ceramica" tabindex="-1" aria-labelledby="modalProyecto6Label" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalProyecto6Label" style="color:rgb(38,35,224);">Ceramicas instaladas a la fecha</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-
-                                <h6><strong>Descripción</strong></h6>
-                                <p>Las imagenes hablan por si solas. Sean estos, espacios pequeños, con superficies irregulares, o quieres cambiar esas viejas baldosas o ceramicos quebrados o picados en los extremos. Llamame y veremos las dimensiones y el valor. Dispongo de flete, y lo mas importante, la sugerencia para que el trabajo final quede lo mas hermoso posible. 
-                                </p>
-                                
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="imagenes/ceramica_ceramica1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                        <img src="imagenes/ceramica_ceramica2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <img src="imagenes/ceramica_ceramica3.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                        <img src="imagenes/ceramica_ceramica4.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                        <p>Trabajos realizados entre el <strong>2024-2024.</strong> Algunos diseños acá expuestos puede que ya no se fabriquen, 
-                                            pero en su reemplazo hay ceramicos igual o mas hermosos. 
-                                        </p>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <img src="imagenes/ceramica_ceramica5.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                        <img src="imagenes/ceramica_ceramica6.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <img src="imagenes/ceramica_ceramica7.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                        <img src="imagenes/ceramica_ceramica8.jpg" class="img-fluid rounded" alt="Proyecto detalle">
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <div class="section-title">
+            <h2>¿Por qué confiar en mí?</h2>
+            <div class="title-divider"></div>
+        </div>
         <div class="row">
             <div class="col-md-4">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="bi bi-shield-check"></i>
                     </div>
-                    <h4>Calidad garantizada</h4>
-                    <p>Trabajos duraderos con materiales de primera calidad</p>
+                    <h4>Calidad Garantizada</h4>
+                    <p>Trabajos duraderos con materiales de primera calidad y acabados profesionales</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -687,8 +690,8 @@
                     <div class="feature-icon">
                         <i class="bi bi-person-heart"></i>
                     </div>
-                    <h4>Atención personalizada</h4>
-                    <p>Cada proyecto importa, lo atendemos como si fuera nuestro</p>
+                    <h4>Atención Personalizada</h4>
+                    <p>Cada proyecto es único, lo atendemos con dedicación como si fuera nuestro propio hogar</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -697,8 +700,427 @@
                         <i class="bi bi-clock-history"></i>
                     </div>
                     <h4>Cumplimiento</h4>
-                    <p>Entregamos en tiempo y forma como nos comprometemos</p>
+                    <p>Entregamos en tiempo y forma tal como nos comprometemos, sin sorpresas</p>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección Portafolio -->
+<section class="portfolio-section" id="portafolio">
+    <div class="container">
+        <div class="section-title">
+            <h2 style="color: var(--dark-bg);">Mis Trabajos Recientes</h2>
+            <div class="title-divider"></div>
+        </div>
+        
+        <!-- Filtros -->
+        <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="todos">Todos</button>
+            <button class="filter-btn" data-filter="construccion">Construcción</button>
+            <button class="filter-btn" data-filter="remodelacion">Remodelación</button>
+            <button class="filter-btn" data-filter="terminaciones">Terminaciones</button>
+        </div>
+        
+        <div class="row" id="proyectos-container">
+            <!-- Proyecto 1 - Construcción -->
+            <div class="col-md-6 col-lg-4 mb-4 proyecto-item" data-categoria="construccion">
+                <div class="card h-100">
+                    <img src="imagenes/cabana1.jpeg" class="card-img-top" alt="Construcción de cabaña" loading="lazy"> 
+                    <div class="card-body">
+                        <h5 class="card-title">Construcción de cabaña completa</h5>
+                        <p class="card-text">En las cercanías del bosque valdiviano. Proyecto integral que combina diseño personalizado, selección de materiales, cimentación y acabados en un entorno natural.</p>
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_cabana1">
+                            Ver más <i class="bi bi-arrow-right-short"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proyecto 2 - Remodelación -->
+            <div class="col-md-6 col-lg-4 mb-4 proyecto-item" data-categoria="remodelacion">
+                <div class="card h-100">
+                    <img src="imagenes/Castro_trabajando.jpeg" class="card-img-top" alt="Reparación de cielos" loading="lazy">
+                    <div class="card-body">
+                        <h5 class="card-title">Reparación de cielos</h5>
+                        <p class="card-text">Encielado completo empleando técnicas modernas para una elegante terminación. Trabajo de precisión y calidad garantizada.</p>
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_cielos">
+                            Ver más <i class="bi bi-arrow-right-short"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proyecto 3 - Terminaciones -->
+            <div class="col-md-6 col-lg-4 mb-4 proyecto-item" data-categoria="terminaciones">
+                <div class="card h-100">
+                    <img src="imagenes/piso_flotante.jpg" class="card-img-top" alt="Instalación de piso flotante" loading="lazy">
+                    <div class="card-body">
+                        <h5 class="card-title">Instalación de piso flotante</h5>
+                        <p class="card-text">Preparación de superficie, barrera de humedad, instalación de tablas, cortes precisos y acabados profesionales con zócalos.</p>
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_piso">
+                            Ver más <i class="bi bi-arrow-right-short"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proyecto 4 - Construcción -->
+            <div class="col-md-6 col-lg-4 mb-4 proyecto-item" data-categoria="construccion">
+                <div class="card h-100">
+                    <img src="imagenes/soldadura.jpg" class="card-img-top" alt="Trabajos de soldadura" loading="lazy">
+                    <div class="card-body">
+                        <h5 class="card-title">Soldaduras profesionales</h5>
+                        <p class="card-text">Fabricación, arreglo e instalación de estructuras metálicas: vigas, portones, rejas, escaleras y más. Trabajo preciso y duradero.</p>
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_soldadura">
+                            Ver más <i class="bi bi-arrow-right-short"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proyecto 5 - Construcción -->
+            <div class="col-md-6 col-lg-4 mb-4 proyecto-item" data-categoria="construccion">
+                <div class="card h-100">
+                    <img src="imagenes/albanileria.jpg" class="card-img-top" alt="Trabajos de albañilería" loading="lazy">
+                    <div class="card-body">
+                        <h5 class="card-title">Albañilería de calidad</h5>
+                        <p class="card-text">Servicios especializados en reparaciones y remodelaciones: muros, terrazas, escaleras y estructuras diversas con técnicas profesionales.</p>
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_albanileria">
+                            Ver más <i class="bi bi-arrow-right-short"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proyecto 6 - Terminaciones -->
+            <div class="col-md-6 col-lg-4 mb-4 proyecto-item" data-categoria="terminaciones">
+                <div class="card h-100">
+                    <img src="imagenes/ceramica.jpg" class="card-img-top" alt="Colocación de cerámicas" loading="lazy">
+                    <div class="card-body">
+                        <h5 class="card-title">Colocación de cerámicas</h5>
+                        <p class="card-text">Planificación, nivelación, adhesión, fraguado y limpieza final. Acabados perfectos para pisos y muros con diseños exclusivos.</p>
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal_ceramica">
+                            Ver más <i class="bi bi-arrow-right-short"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== MODALES ========== -->
+
+<!-- Modal Cabaña -->
+<div class="modal fade" id="modal_cabana1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🏠 Construcción de Cabaña Campestre</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!--
+                        <img src="https://via.placeholder.com/400x300/1a1a2e/white?text=Cabaña+Exterior" class="img-fluid w-100" alt="Cabaña exterior">
+                        <img src="https://via.placeholder.com/400x300/16213e/white?text=Dormitorio" class="img-fluid w-100 mt-3" alt="Dormitorio">
+                        -->
+                        <img src="imagenes/cabana1_imagen1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                        <img src="imagenes/cabana1_dormitorio.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                        <img src="imagenes/cabana1_dormitorio2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+
+                    </div>
+                    <div class="col-md-6">
+                        <h6>📋 Descripción del Proyecto</h6>
+                        <p>Cabaña campestre en pino, estilo artesanal con habitación suite. Materiales naturales y duraderos, diseñada para entornos rurales con vistas panorámicas.</p>
+                        
+                        <h6 class="mt-4">✨ Características</h6>
+                        <ul>
+                            <li>Superficie: 45m² construidos</li>
+                            <li>Material: Madera tratada y piedra</li>
+                            <li>Aislamiento térmico de alta eficiencia</li>
+                            <li>Grandes ventanales y terraza</li>
+                            <li>Base elevada sobre pilotes</li>
+                        </ul>
+                        
+                        <h6 class="mt-4">👥 Cliente</h6>
+                        <p>Familia Castro - Sector Bosque Valdiviano</p>
+                        
+                        <div class="alert alert-info mt-3">
+                            <i class="bi bi-info-circle"></i> Proyecto entregado en 3 meses, cumpliendo todos los plazos establecidos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Cielos -->
+<div class="modal fade" id="modal_cielos" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🔨 Reparación de Cielos</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="imagenes/cielo_cielo1.jpg" class="img-fluid w-100" alt="Proyecto detalle">
+                        <img src="imagenes/cielo_cielo2.jpg" class="img-fluid w-100" alt="Proyecto detalle">
+                        <img src="imagenes/cielo_cielo3.jpg" class="img-fluid w-100" alt="Proyecto detalle">
+                    </div>
+                    <div class="col-md-6">
+                        <h6>📋 Descripción</h6>
+                        <p>Reparación completa de techo de volcanita (yeso-cartón) dañado por humedad. Proceso profesional que incluye retiro de material afectado, instalación de nueva plancha y acabado perfecto.</p>
+                        
+                        <h6 class="mt-4">🔧 Método de trabajo</h6>
+                        <ul>
+                            <li><strong>Seguridad:</strong> Protección personal y desconexión eléctrica</li>
+                            <li><strong>Preparación:</strong> Remoción de material dañado</li>
+                            <li><strong>Instalación:</strong> Fijación con tornillos autoperforantes</li>
+                            <li><strong>Acabado:</strong> Encintado, masillado y lijado profesional</li>
+                            <li><strong>Pintura:</strong> Sellador antihongos y pintura final</li>
+                        </ul>
+                        
+                        <div class="alert alert-success mt-3">
+                            <i class="bi bi-check-circle"></i> Garantía de 2 años contra filtraciones y humedad.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Piso Flotante -->
+<div class="modal fade" id="modal_piso" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">✨ Instalación de Piso Flotante</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="imagenes/piso_flotante1.jpg" class="img-fluid rounded"  class="img-fluid w-100" alt="Instalación"">
+                        <img src="imagenes/piso_flotante2.jpg" class="img-fluid rounded"  class="img-fluid w-100" alt="Instalación"">
+                    </div>
+                    <div class="col-md-6">
+                        <h6>📋 Descripción</h6>
+                        <p>Instalación profesional de piso flotante mediante sistema de "clic" sin adhesivos. Método rápido y limpio con acabados perfectos.</p>
+                        
+                        <h6 class="mt-4">✨ Proceso</h6>
+                        <ul>
+                            <li>Nivelación y preparación de superficie</li>
+                            <li>Barrera de humedad y espuma aislante</li>
+                            <li>Instalación con junta de dilatación (1cm)</li>
+                            <li>Cortes precisos en puertas y esquinas</li>
+                            <li>Colocación de zócalos decorativos</li>
+                        </ul>
+                        
+                        <h6 class="mt-4">⏱️ Tiempo de entrega</h6>
+                        <p>Superficies de hasta 50m² en 2-3 días hábiles</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Soldadura -->
+<div class="modal fade" id="modal_soldadura" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">⚡ Trabajos de Soldadura</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- <img src="https://via.placeholder.com/400x300/1a1a2e/white?text=Soldadura" class="img-fluid w-100" alt="Soldadura"> -->
+                        <img src="imagenes/soldadura_soldadura1.jpg" class="img-fluid w-100" alt="Proyecto detalle">
+                        <img src="imagenes/soldadura_soldadura2.jpg" class="img-fluid w-100" alt="Proyecto detalle">
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <h6>📋 Servicios de Soldadura</h6>
+                        <p>Técnicas profesionales SMAW (electrodo), MIG/MAG y TIG para todo tipo de proyectos metálicos.</p>
+                        
+                        <h6 class="mt-4">🔧 Trabajos realizados</h6>
+                        <ul>
+                            <li><strong>Estructuras:</strong> Vigas, pilares, soportes</li>
+                            <li><strong>Seguridad:</strong> Rejas, portones, barandas</li>
+                            <li><strong>Adornos:</strong> Escaleras, muebles metálicos</li>
+                            <li><strong>Reparaciones:</strong> Maquinarias y estructuras dañadas</li>
+                        </ul>
+                        
+                        <h6 class="mt-4">📏 Especificaciones</h6>
+                        <ul>
+                            <li>Materiales: Acero, hierro, aluminio</li>
+                            <li>Grosor: Desde 1mm hasta 20mm</li>
+                            <li>Acabados: Lijado, pintura electrostática</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Albañilería -->
+<div class="modal fade" id="modal_albanileria" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🧱 Albañilería Profesional</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- <img src="https://via.placeholder.com/400x300/16213e/white?text=Albañilería" class="img-fluid w-100" alt="Albañilería"> -->
+
+                        <img src="imagenes/albanileria_albanileria1.jpg" class="img-fluid w-100" alt="Proyecto detalle">
+                        <img src="imagenes/albanileria_albanileria2.jpg" class="img-fluid w-100" alt="Proyecto detalle">
+                        <img src="imagenes/albanileria_albanileria3.jpg" class="img-fluid w-100" alt="Proyecto detalle">
+
+
+                    </div>
+                    <div class="col-md-6">
+                        <h6>📋 Servicios de Albañilería</h6>
+                        <p>Construcción tradicional con ladrillos, bloques de concreto y piedra, unidos con mortero de alta calidad.</p>
+                        
+                        <h6 class="mt-4">🏗️ Trabajos realizados</h6>
+                        <ul>
+                            <li>Muros divisorios estructurales</li>
+                            <li>Cimentaciones y radieres</li>
+                            <li>Pisos de hormigón armado</li>
+                            <li>Reparaciones estructurales</li>
+                            <li>Revestimientos y enfoscados</li>
+                        </ul>
+                        
+                        <h6 class="mt-4">💪 Garantía estructural</h6>
+                        <p>Todos los trabajos incluyen refuerzo de acero donde sea necesario y cumplen con normativa vigente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Cerámica -->
+<div class="modal fade" id="modal_ceramica" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🪜 Colocación de Cerámicas</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!--
+                        <img src="https://via.placeholder.com/400x300/0f3460/white?text=Cerámica+1" class="img-fluid w-100" alt="Cerámica">
+                        <img src="https://via.placeholder.com/400x300/1a1a2e/white?text=Cerámica+2" class="img-fluid w-100 mt-3" alt="Cerámica 2">
+                        -->
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="imagenes/ceramica_ceramica1.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                <img src="imagenes/ceramica_ceramica2.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                            </div>
+
+                            <div class="col-md-6">
+                                <img src="imagenes/ceramica_ceramica3.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                <img src="imagenes/ceramica_ceramica4.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                <p>Trabajos realizados entre el <strong>2024-2024.</strong> Algunos diseños acá expuestos puede que ya no se fabriquen, 
+                                    pero en su reemplazo hay ceramicos igual o mas hermosos. 
+                                </p>
+                            </div>
+
+                            <div class="col-md-6">
+                                <img src="imagenes/ceramica_ceramica5.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                <img src="imagenes/ceramica_ceramica6.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                            </div>
+
+                            <div class="col-md-6">
+                                <img src="imagenes/ceramica_ceramica7.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                                <img src="imagenes/ceramica_ceramica8.jpg" class="img-fluid rounded" alt="Proyecto detalle">
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-6">
+                        <h6>📋 Descripción</h6>
+                        <p>Trabajos de cerámica realizados entre 2023-2024. Diseños exclusivos y acabados perfectos.</p>
+                        
+                        <h6 class="mt-4">🔧 Proceso profesional</h6>
+                        <ul>
+                            <li>Planificación y diseño personalizado</li>
+                            <li>Nivelación precisa de superficies</li>
+                            <li>Cortes especiales en esquinas</li>
+                            <li>Fraguado y limpieza profesional</li>
+                            <li>Tratamiento de juntas y selladores</li>
+                        </ul>
+                        
+                        <div class="alert alert-warning mt-3">
+                            <i class="bi bi-star-fill"></i> Disponemos de muestrario con más de 50 diseños diferentes. ¡Consulta sin compromiso!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Botón Flotante de WhatsApp -->
+<a href="https://wa.me/56912345678?text=Hola%20Daniel%2C%20me%20interesa%20cotizar%20un%20proyecto" 
+   class="whatsapp-float" 
+   target="_blank"
+   rel="noopener noreferrer">
+    <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- Footer -->
+<footer class="footer" id="contacto">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <i class="bi bi-telephone-fill" style="color: var(--primary-color);"></i> 
+                <strong>Contacto:</strong> +56 9 4205 8175
+                <span class="mx-3">|</span>
+                <i class="bi bi-envelope-fill" style="color: var(--primary-color);"></i> 
+                <strong>Email:</strong> gabrielaraya2011@gmail.com
+                <br><br>
+                <p>&copy; 2024 Daniel Castro - Maestro Constructor. Disponibilidad inmediata.</p>
+                <p class="small">📍 Atendemos en La Florida y comunas cercanas | Presupuestos sin compromiso</p>
             </div>
         </div>
     </div>
@@ -711,14 +1133,123 @@
         <img src="https://visitor-badge.laobi.icu/badge?page_id=gabrielcursojava.maestrodaniel" alt="Visitas" class="mt-2">
     </div>
 
+</footer>
 
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+    // ========== BARRA DE PROGRESO SCROLL ==========
+    window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        const progressBar = document.querySelector('.progress-bar-scroll');
+        if (progressBar) {
+            progressBar.style.width = scrolled + '%';
+        }
+        
+        // Cambiar estilo del navbar al hacer scroll
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // ========== FILTROS DEL PORTAFOLIO ==========
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const proyectos = document.querySelectorAll('.proyecto-item');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remover clase active de todos los botones
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Agregar clase active al botón clickeado
+            button.classList.add('active');
+            
+            const filterValue = button.getAttribute('data-filter');
+            
+            proyectos.forEach(proyecto => {
+                if (filterValue === 'todos') {
+                    proyecto.classList.remove('hide');
+                } else {
+                    const categoria = proyecto.getAttribute('data-categoria');
+                    if (categoria === filterValue) {
+                        proyecto.classList.remove('hide');
+                    } else {
+                        proyecto.classList.add('hide');
+                    }
+                }
+            });
+        });
+    });
+    
+    // ========== SCROLL SUAVE PARA ANCLAS ==========
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // ========== FILTRO POR BADGES (Hero) ==========
+    const serviceBadges = document.querySelectorAll('.service-badge');
+    serviceBadges.forEach(badge => {
+        badge.addEventListener('click', () => {
+            const filter = badge.getAttribute('data-filter');
+            // Buscar el botón de filtro correspondiente
+            const targetButton = Array.from(filterButtons).find(
+                btn => btn.getAttribute('data-filter') === filter
+            );
+            if (targetButton) {
+                targetButton.click();
+                // Scroll hasta la sección de portafolio
+                document.getElementById('portafolio').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // ========== ANIMACIÓN AL CARGAR ==========
+    document.addEventListener('DOMContentLoaded', () => {
+        // Agregar efecto fade a los elementos
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            card.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s forwards`;
+            card.style.opacity = '0';
+        });
+    });
+    
+    // ========== LAZY LOADING ADICIONAL ==========
+    /*
+    if ('IntersectionObserver' in window) {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.style.opacity = '0';
+                    img.addEventListener('load', () => {
+                        img.style.transition = 'opacity 0.5s';
+                        img.style.opacity = '1';
+                    });
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        images.forEach(img => imageObserver.observe(img));
+    }
+    */
+</script>
 
-</section>    
-<!-- </section> -->
-
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

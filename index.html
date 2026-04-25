@@ -369,11 +369,12 @@
         }
         
         .card-img-top {
-             width: 100%;
-             height: auto;  /* Sin altura fija, muestra la imagen completa */
-             object-fit: contain;
-         }
-              
+            /* height: 260px; */
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
         .card:hover .card-img-top {
             transform: scale(1.05);
         }
